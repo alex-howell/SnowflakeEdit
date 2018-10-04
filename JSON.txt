@@ -1,0 +1,29 @@
+var employees = {
+                        accounting:[]
+                    };
+
+                    result.map(function(item){
+                        employees.accounting.push({
+                            "MOBILE":item.MOBILE,
+                            "WEB_CLIENT":item.WEB_CLIENT,
+                            "FOUNDATIONS":item.FOUNDATIONS,
+                            "SERVERS":item.SERVERS,
+                            "PROJECT_MANAGEMENT":item.PROJECT_MANAGEMENT,
+                            "COMMUNICATION":item.COMMUNICATION,
+                            "CRAFT":item.CRAFT,
+                            "INITIATIVE":item.INITIATIVE,
+                            "CAREER_DEVELOPMENT":item.CAREER_DEVELOPMENT,
+                            "ORG_DESIGN": item.ORG_DESIGN,
+                            "WELLBEING": item.WELLBEING,
+                            "ACCOMPLISHMENT": item.ACCOMPLISHMENT,
+                            "MENTORSHIP": item.MENTORSHIP,
+                            "EVANGELISM": item.EVANGELISM,
+                            "RECRUITING": item.RECRUITING,
+                            "COMMUNITY": item.COMMUNITY,
+                            "NAME":item.NAME,
+                            "TITLE":item.TITLE,
+                            "LOCATION":item.LOCATION,
+                            "TEAM":item.TEAM,
+                            "_id":item._id
+                        });
+                    });

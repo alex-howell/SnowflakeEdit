@@ -1,0 +1,63 @@
+yarn run v1.9.4
+info Commands available from binary scripts: JSONStream, acorn, ansi-html, babylon, browserslist, codeclimate-test-reporter, conventional-changelog-writer, conventional-commits-parser, csv2json, csv2tsv, dateformat, dsv2dsv, dsv2json, errno, flow, get-pkg-repo, git-head, git-raw-commits, git-refs, git-semver-tags, handlebars, har-validator, jsesc, json2csv, json2dsv, json2tsv, json5, loose-envify, md5-file, miller-rabin, mime, mkdirp, ncp, next, nodetouch, nopt, regjsparser, rimraf, semantic-release, semver, sha.js, sshpk-conv, sshpk-sign, sshpk-verify, strip-indent, travis-ci, tsv2csv, tsv2json, uglifyjs, uuid, webpack, which
+info Project commands
+   - dev
+      node server/index.js
+   - export
+      next build && next export
+   - flow
+      flow
+error No command specified.
+Done in 0.08s.
+yarn run v1.9.4
+$ node server/index.js
+ DONE  Compiled successfully in 1877ms10:20:07 AM
+
+>ready on :3000
+> Building page: /
+ DONE  Compiled successfully in 1084ms10:20:13 AM
+
+ WAIT  Compiling...10:20:14 AM
+
+ DONE  Compiled successfully in 91ms10:20:14 AM
+
+> Building page: /app
+ DONE  Compiled successfully in 2037ms10:20:25 AM
+
+> Building page: /findall
+ DONE  Compiled successfully in 1099ms10:20:45 AM
+
+ WAIT  Compiling...10:21:08 AM
+
+ DONE  Compiled successfully in 406ms10:21:09 AM
+
+> Disposing inactive page(s): /, /findall
+ DONE  Compiled successfully in 282ms10:21:36 AM
+
+> Building page: /
+ DONE  Compiled successfully in 252ms10:21:36 AM
+
+yarn run v1.9.4
+$ node server/index.js
+ DONE  Compiled successfully in 1748ms10:22:28 AM
+
+>ready on :3000
+> Building page: /
+ DONE  Compiled successfully in 1098ms10:22:30 AM
+
+ WAIT  Compiling...10:22:31 AM
+
+ DONE  Compiled successfully in 104ms10:22:31 AM
+
+> Building page: /app
+ DONE  Compiled successfully in 1925ms10:22:38 AM
+
+> Building page: /findall
+ DONE  Compiled successfully in 1082ms10:22:48 AM
+
+> Building page: /about
+ DONE  Compiled successfully in 870ms10:22:54 AM
+
+> Disposing inactive page(s): /, /app, /findall
+ DONE  Compiled successfully in 96ms10:23:22 AM
+
