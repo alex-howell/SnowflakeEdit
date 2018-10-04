@@ -87,6 +87,9 @@ class AboutApp extends React.Component<Props> {
 
                         <h4>Viewing Team Average</h4>
                         <p>This will determine the average score for each track of the selected team, based on the records stored in the database.</p>
+
+                        <h4>View All</h4>
+                        <p>Here is where you view all records stored within the database. You can filter the table to only show the records of the selected team. Clicking export will download the displayed table as an excel file.</p>
                     </div>
                 </div>
             </main>

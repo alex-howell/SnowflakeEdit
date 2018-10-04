@@ -1,8 +1,17 @@
 import React from 'react';
 import NavBar from '../components/NavBar';
-
+import Workbook from 'react-excel-workbook';
 
 const LoadingIcon = require('react-loading-animation');
+
+const data1 = [
+  {
+    foo:'123',
+    bar:'456',
+    baz:'789'
+  }
+]
+
 
 const API = '/findall?team=';
 
@@ -120,6 +129,45 @@ class AllApp extends React.Component {
           
             
           <br />
+          <br />
+   
+          <Workbook filename="records.xlsx" element={<button>Export table to Excel</button>}>
+              <Workbook.Sheet data={hits} name="Sheet A">
+                <Workbook.Column label="Name" value="NAME"/>
+                <Workbook.Column label="ID" value="_id"/>
+                <Workbook.Column label="Team" value="TEAM"/>
+                <Workbook.Column label="Location" value="LOCATION"/>
+                <Workbook.Column label="Booking" value="BOOKING"/>
+                <Workbook.Column label="Booking Core" value="BOOKING_CORE"/>
+                <Workbook.Column label="Shipment" value="SHIPMENT"/>
+                <Workbook.Column label="Product & Routing" value="PRODUCT_AND_ROUTING"/>
+                <Workbook.Column label="Pricing" value="PRICING"/>
+                <Workbook.Column label="Haulage" value="HAULAGE"/>
+                <Workbook.Column label="Customer" value="CUSTOMER"/>
+                <Workbook.Column label="Activity Plan" value="ACTIVITY_PLAN"/>
+                <Workbook.Column label="Allocation" value="ALLOCATION"/>
+                <Workbook.Column label="TPDoc Management" value="TPDOC"/>
+                <Workbook.Column label="Framework" value="FRAMEWORK"/>
+                <Workbook.Column label="FUI" value="FUI"/>
+                <Workbook.Column label="Cargo" value="CARGO"/>
+                <Workbook.Column label="Special Cargo" value="SPECIAL_CARGO"/>
+                <Workbook.Column label="Interfaces" value="INTERFACES"/>
+                <Workbook.Column label="Document Process Engine" value="DOC_PROCESS_ENG"/>
+                <Workbook.Column label="DocBroker" value="DOCBROKER"/>
+                <Workbook.Column label="Archiving" value="ARCHIVING"/>
+                <Workbook.Column label="ToP" value="TOP"/>
+                <Workbook.Column label="GHDER" value="GHDER"/>
+                <Workbook.Column label="DecoMmissioned" value="DECOMMISSIONED"/>
+                <Workbook.Column label="Reference Data Management" value="REF_DAT_MGMT"/>
+                <Workbook.Column label="UI Framework" value="UI_FMWK"/>
+                <Workbook.Column label="SAT" value="SAT"/>
+                <Workbook.Column label="Development Support Features" value="DEVELOPMENT"/>
+                <Workbook.Column label="Environment" value="ENVIRONMENT"/>
+                <Workbook.Column label="General Knowhow" value="GENERAL_KNW"/>
+              </Workbook.Sheet>
+            </Workbook>
+            
+            <br />
           <br/>
           <table>
             <th>Name</th><th>Team</th><th>Location</th><th>Booking</th><th>Booking Core</th><th>Shipment</th><th>Product & Routing</th><th>Pricing</th><th>Haulage</th><th>Customer</th><th>Activity Plan</th><th>Allocation</th><th>TPDoc Management</th><th>Framework</th><th>FUI</th><th>Cargo</th><th>Special Cargo</th><th>Interfaces</th><th>Document Process Engine</th><th>DocBroker</th><th>Archiving</th><th>ToP</th><th>GHDER</th><th>Decommissioned</th><th>Reference Data Management</th><th>UI Framework</th><th>SAT</th><th>Development Support Features</th><th>Environment</th><th>General Knowhow</th>
@@ -129,8 +177,9 @@ class AllApp extends React.Component {
                 </tr>
             )}
           </table>
-          <button onClick={(e) => {this.handleClick(e)}}>Save</button>
+          
         </div>
+     
       </main>
     );
   }
