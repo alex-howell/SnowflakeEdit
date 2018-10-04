@@ -81,7 +81,7 @@ class NightingaleChart extends React.Component<Props> {
                     )
                   })}
                   <circle
-                      r="8"
+                      r="4"
                       cx="0"
                       cy="-50"
                       style={{fill: categoryColorScale(tracks[trackId].category)}}

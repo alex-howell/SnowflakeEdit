@@ -11,24 +11,32 @@ import PointSummaries from '../components/PointSummaries'
 import type { Milestone, MilestoneMap, TrackId } from '../constants'
 import React from 'react'
 import TitleSelector from '../components/TitleSelector'
+import NavBar from '../components/NavBar'
+const LoadingIcon = require('react-loading-animation');
 
 type SnowflakeAppState = {
   milestoneByTrack: MilestoneMap,
   name: string,
   title: string,
   focusedTrackId: TrackId,
+  location:string,
+  team:string,
+  id:string,
 }
 
 const hashToState = (hash: String): ?SnowflakeAppState => {
   if (!hash) return null
-  const result = defaultState()
+  const result = emptyState()
   const hashValues = hash.split('#')[1].split(',')
   if (!hashValues) return null
   trackIds.forEach((trackId, i) => {
     result.milestoneByTrack[trackId] = coerceMilestone(Number(hashValues[i]))
   })
-  if (hashValues[16]) result.name = decodeURI(hashValues[16])
-  if (hashValues[17]) result.title = decodeURI(hashValues[17])
+  if (hashValues[27]) result.name = decodeURI(hashValues[27])
+  if (hashValues[28]) result.title = decodeURI(hashValues[28])
+  if (hashValues[29]) result.location = decodeURI(hashValues[29])
+  if (hashValues[30]) result.team = decodeURI(hashValues[30])
+  if (hashValues[31]) result.id = decodeURI(hashValues[31])
   return result
 }
 
@@ -49,63 +57,56 @@ const emptyState = (): SnowflakeAppState => {
   return {
     name: '',
     title: '',
+    id:'',
+    location:'',
+    team:'',
     milestoneByTrack: {
-      'MOBILE': 0,
-      'WEB_CLIENT': 0,
-      'FOUNDATIONS': 0,
-      'SERVERS': 0,
-      'PROJECT_MANAGEMENT': 0,
-      'COMMUNICATION': 0,
-      'CRAFT': 0,
-      'INITIATIVE': 0,
-      'CAREER_DEVELOPMENT': 0,
-      'ORG_DESIGN': 0,
-      'WELLBEING': 0,
-      'ACCOMPLISHMENT': 0,
-      'MENTORSHIP': 0,
-      'EVANGELISM': 0,
-      'RECRUITING': 0,
-      'COMMUNITY': 0
+      'BOOKING':0,
+      'BOOKING_CORE':0,
+      'SHIPMENT':0,
+      'PRODUCT_AND_ROUTING':0, 
+      'PRICING':0,
+      'HAULAGE':0,
+      'CUSTOMER':0,
+      'ACTIVITY_PLAN':0,
+      'ALLOCATION':0,
+      'TPDOC':0,
+      'FRAMEWORK':0,
+      'FUI':0,
+      'CARGO':0,
+      'SPECIAL_CARGO':0,
+      'INTERFACES':0,
+      'DOC_PROCESS_ENG':0,
+      'DOCBROKER':0,
+      'ARCHIVING':0,
+      'TOP':0,
+      'GHDER':0,
+      'DECOMMISSIONED':0,
+      'REF_DAT_MGMT':0,
+      'UI_FMWK':0,
+      'SAT':0,
+      'DEVELOPMENT':0,
+      'ENVIRONMENT':0,
+      'GENERAL_KNW':0
     },
-    focusedTrackId: 'MOBILE'
+    focusedTrackId: 'BOOKING'
   }
 }
 
-const defaultState = (): SnowflakeAppState => {
-  return {
-    name: 'Cersei Lannister',
-    title: 'Staff Engineer',
-    milestoneByTrack: {
-      'MOBILE': 1,
-      'WEB_CLIENT': 2,
-      'FOUNDATIONS': 3,
-      'SERVERS': 2,
-      'PROJECT_MANAGEMENT': 4,
-      'COMMUNICATION': 1,
-      'CRAFT': 1,
-      'INITIATIVE': 4,
-      'CAREER_DEVELOPMENT': 3,
-      'ORG_DESIGN': 2,
-      'WELLBEING': 0,
-      'ACCOMPLISHMENT': 4,
-      'MENTORSHIP': 2,
-      'EVANGELISM': 2,
-      'RECRUITING': 3,
-      'COMMUNITY': 0
-    },
-    focusedTrackId: 'MOBILE'
-  }
-}
 
 const stateToHash = (state: SnowflakeAppState) => {
   if (!state || !state.milestoneByTrack) return null
-  const values = trackIds.map(trackId => state.milestoneByTrack[trackId]).concat(encodeURI(state.name), encodeURI(state.title))
+  const values = trackIds.map(trackId => state.milestoneByTrack[trackId]).concat(encodeURI(state.name), encodeURI(state.title), encodeURI(state.location),encodeURI(state.team),encodeURI(state.id))
   return values.join(',')
 }
+
+var isLoading = true;
 
 type Props = {}
 
 class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
+
+  
   constructor(props: Props) {
     super(props)
     this.state = emptyState()
@@ -118,22 +119,31 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
 
   componentDidMount() {
     const state = hashToState(window.location.hash)
+    console.log("-------------------------------------------")
     if (state) {
       this.setState(state)
+      
     } else {
-      this.setState(defaultState())
+      this.setState(emptyState())
     }
+    isLoading=false;
   }
 
   render() {
+
+    if (isLoading) {
+      return <LoadingIcon />;
+    }
+    
     return (
       <main>
         <style jsx global>{`
           body {
             font-family: Helvetica;
+            background-color:white;
           }
           main {
-            width: 960px;
+            width: 1150px;
             margin: 0 auto;
           }
           .name-input {
@@ -146,7 +156,21 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             width: 380px;
             margin-bottom: 10px;
           }
+          .other-input {
+            border: none;
+            display: block;
+            border-bottom: 2px solid #fff;
+            font-size: 15px;
+            line-height: 20px;
+            font-weight: bold;
+            width: 380px;
+            margin-bottom: 2px;
+          }
           .name-input:hover, .name-input:focus {
+            border-bottom: 2px solid #ccc;
+            outline: 0;
+          }
+          .other-input:hover, .other-input:focus {
             border-bottom: 2px solid #ccc;
             outline: 0;
           }
@@ -155,25 +179,55 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             text-decoration: none;
           }
         `}</style>
-        <div style={{margin: '19px auto 0', width: 142}}>
-          <a href="https://medium.com/" target="_blank">
-            <Wordmark />
-          </a>
-        </div>
+        <NavBar />
         <div style={{display: 'flex'}}>
+          
           <div style={{flex: 1}}>
-            <form>
+       
+            <form method="POST" action="/save">
+              <input
+                  type="hidden"
+                  value={stateToHash(this.state)}
+                  name="theUrl"
+              />
               <input
                   type="text"
                   className="name-input"
                   value={this.state.name}
                   onChange={e => this.setState({name: e.target.value})}
                   placeholder="Name"
+                  required
+                  />
+              <input 
+                  type="text"
+                  className="other-input"
+                  value={this.state.id}
+                  onChange={e => this.setState({id:e.target.value})}
+                  placeholder="Maersk ID"
+                  required
+                  />
+              <input 
+                  type="text"
+                  className="other-input"
+                  value={this.state.location}
+                  onChange={e => this.setState({location:e.target.value})}
+                  placeholder="Location"
+                  required
+                  />
+              <input 
+                  type="text"
+                  className="other-input"
+                  value={this.state.team}
+                  onChange={e => this.setState({team:e.target.value})}
+                  placeholder="Team"
+                  required
                   />
               <TitleSelector
                   milestoneByTrack={this.state.milestoneByTrack}
                   currentTitle={this.state.title}
-                  setTitleFn={(title) => this.setTitle(title)} />
+                  setTitleFn={(title) => this.setTitle(title)} 
+                  />
+              <input type="submit" value="Save"/>
             </form>
             <PointSummaries milestoneByTrack={this.state.milestoneByTrack} />
             <LevelThermometer milestoneByTrack={this.state.milestoneByTrack} />
@@ -198,14 +252,7 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             milestoneByTrack={this.state.milestoneByTrack}
             trackId={this.state.focusedTrackId}
             handleTrackMilestoneChangeFn={(track, milestone) => this.handleTrackMilestoneChange(track, milestone)} />
-        <div style={{display: 'flex', paddingBottom: '20px'}}>
-          <div style={{flex: 1}}>
-            Made with ❤️ by <a href="https://medium.engineering" target="_blank">Medium Eng</a>.
-            Learn about the <a href="https://medium.com/s/engineering-growth-framework" target="_blank">growth framework</a>.
-            Get the <a href="https://github.com/Medium/snowflake" target="_blank">source code</a>.
-            Read the <a href="https://medium.com/p/85e078bc15b7" target="_blank">terms of service</a>.
-          </div>
-        </div>
+
       </main>
     )
   }
@@ -246,6 +293,7 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
     title = titles.indexOf(title) == -1 ? titles[0] : title
     this.setState({ title })
   }
+
 }
 
 export default SnowflakeApp

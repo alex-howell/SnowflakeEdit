@@ -1,5 +1,5 @@
-import SnowflakeApp from '../components/SnowflakeApp'
+import HomeApp from '../components/HomeApp'
 
 export default () => <div>
-  <SnowflakeApp />
+  <HomeApp />
 </div>
