@@ -5,7 +5,7 @@ render() {
     
     return (
       <main>
-        <style >{`      
+        <style >{`   
         #navbar ul {
             list-style-type: none;
             margin: 0;
@@ -28,7 +28,7 @@ render() {
         }
 
         #navbar li a:hover {
-            background-color: #6099f7;
+            border-bottom: 4px solid #6099f7;
             color:white;
         }
         `}</style>

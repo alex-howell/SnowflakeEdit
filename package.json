@@ -5,7 +5,7 @@
   "repository": "https://github.com/Medium/eng-growth",
   "license": "MIT",
   "dependencies": {
-    "babel-plugin-import-static-files": "^1.0.4",
+    "babel-plugin-file-loader": "^1.1.0",
     "d3": "^4.11.0",
     "express": "^4.16.3",
     "mongodb": "^3.1.6",

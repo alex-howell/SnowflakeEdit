@@ -1,6 +1,9 @@
 import React from 'react'
 import Navbar from '../components/NavBar';
+
+
 const LoadingIcon = require('react-loading-animation');
+
 class AboutApp extends React.Component<Props> {
 
   
@@ -64,16 +67,7 @@ class AboutApp extends React.Component<Props> {
           display:block;
           margin:0.4em auto;
          }
-        .inputDiv{
-            margin:0 auto;
-        }
-        .form, label {
-            padding:10px;
-            font-size:20px;
-        }
-        .heading{
-            text-decoration:underline;
-        }
+      
         `}</style>
         <Navbar/>
                 <div id="main" align="center">
@@ -81,9 +75,10 @@ class AboutApp extends React.Component<Props> {
                     <title>Home</title>
                     <h1>Skills Matrix</h1>
                     <h3>How does it work?</h3> 
-                    <div align="left" className="heading">
+                    <div align="left">
+                        
                         <h4>Individual Record</h4>
-                        <p>Begin by entering your organisation ID and click go. If you%E2%80%99ve previously tracked your progress, the application will load your saved progress. If it is the first time you are tracking your progress, it will load a blank state. Work your way through the different tracks, rating yourself accordingly. Once you have completed scoring yourself click the save button and your record will be saved.</p>       
+                        <p>Begin by entering your organisation ID and click go. If you've previously tracked your progress, the application will load your saved progress. If it is the first time you are tracking your progress, it will load a blank state. Work your way through the different tracks, rating yourself accordingly. Once you have completed scoring yourself click the save button and your record will be saved.</p>       
 
                         <h4>Viewing Team Average</h4>
                         <p>This will determine the average score for each track of the selected team, based on the records stored in the database.</p>

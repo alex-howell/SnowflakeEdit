@@ -2,6 +2,7 @@ const express = require('express');
 const next = require('next');
 const http = require('http');
 
+
 const port = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== 'production';
 const app = next({ dev });
@@ -21,6 +22,8 @@ app
         server.use(bodyParser.urlencoded({
             extended:true
         }));
+
+        
 
         server.get("*",(req,res)=>{
             return handle(req,res);
