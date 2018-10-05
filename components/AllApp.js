@@ -2,15 +2,9 @@ import React from 'react';
 import NavBar from '../components/NavBar';
 import Workbook from 'react-excel-workbook';
 
+
 const LoadingIcon = require('react-loading-animation');
 
-const data1 = [
-  {
-    foo: '123',
-    bar: '456',
-    baz: '789'
-  }
-]
 
 
 const API = '/findall?team=';
@@ -189,6 +183,7 @@ class AllApp extends React.Component {
 
           <br />
           <br />
+          
           <table>
             <th>Name</th><th>Team</th><th>Location</th><th>Booking</th><th>Booking Core</th><th>Shipment</th><th>Product & Routing</th><th>Pricing</th><th>Haulage</th><th>Customer</th><th>Activity Plan</th><th>Allocation</th><th>TPDoc Management</th><th>Framework</th><th>FUI</th><th>Cargo</th><th>Special Cargo</th><th>Interfaces</th><th>Document Process Engine</th><th>DocBroker</th><th>Archiving</th><th>ToP</th><th>GHDER</th><th>Decommissioned</th><th>Reference Data Management</th><th>UI Framework</th><th>SAT</th><th>Development Support Features</th><th>Environment</th><th>General Knowhow</th>
             {hits.map(hit =>
@@ -198,7 +193,7 @@ class AllApp extends React.Component {
             )}
           </table>
           <form method="POST" action="/find" id="theForm" target="_blank">
-            <input type="text" id="searchID" name="searchID"/>
+            <input type="hidden" id="searchID" name="searchID"/>
           </form>
         </div>
 

@@ -20,6 +20,7 @@ class HomeApp extends React.Component<Props> {
     }
 
     componentDidMount() {
+        document.title = "Home";
         fetch('/teams', {
             method: "POST"
         })
@@ -120,14 +121,12 @@ class HomeApp extends React.Component<Props> {
         `}</style>
         <Navbar/>
                 <div id="main" align="center">
-                
-                    <title>Home</title>
                     <h1>Skills Matrix</h1>
                     <div className="inputDiv">
                         <form method="POST" action="/find" className="form">
-                            <label>Enter Your Maersk ID</label><br />
+                            <label>Enter Your Organisation ID</label><br />
 
-                            <input type="text" placeholder="Maersk ID" name="searchID" className="name-input" required /><br />
+                            <input type="text" placeholder="Organisation ID" name="searchID" className="name-input" required /><br />
                             <input type="submit" value="Go" className="btn" />
                         </form>
                     </div>

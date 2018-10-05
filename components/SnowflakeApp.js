@@ -130,7 +130,7 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
   }
 
   render() {
-
+    
     if (isLoading) {
       return <LoadingIcon />;
     }

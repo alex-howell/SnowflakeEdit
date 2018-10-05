@@ -23,5 +23,17 @@
   },
   "devDependencies": {
     "flow-bin": "^0.57.2"
-  }
+  },
+  "plugins": [
+    [
+      "file-loader",
+      {
+        "name": "[hash].[ext]",
+        "extensions": ["png", "jpg", "jpeg", "gif", "svg"],
+        "publicPath": "/public",
+        "outputPath": "/public",
+        "context": ""
+      }
+    ]
+  ]
 }

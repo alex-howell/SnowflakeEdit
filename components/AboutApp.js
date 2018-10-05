@@ -6,11 +6,11 @@ const LoadingIcon = require('react-loading-animation');
 
 class AboutApp extends React.Component<Props> {
 
-  
+
     render() {
 
         return (
-            
+
             <main>
                 <style jsx global>{`
         body{
@@ -32,8 +32,6 @@ class AboutApp extends React.Component<Props> {
             padding-left:10px;
         }
         .name-input {
-            
-            
             font-size: 20px;
             line-height: 25px;
             font-weight: bold;
@@ -69,17 +67,17 @@ class AboutApp extends React.Component<Props> {
          }
       
         `}</style>
-        <Navbar/>
+                <Navbar />
                 <div id="main" align="center">
-                
-                    <title>Home</title>
+                    <title>About</title>
                     <h1>Skills Matrix</h1>
-                    <h3>How does it work?</h3> 
+                    
                     <div align="left">
-                        
-                        <h4>Individual Record</h4>
-                        <p>Begin by entering your organisation ID and click go. If you've previously tracked your progress, the application will load your saved progress. If it is the first time you are tracking your progress, it will load a blank state. Work your way through the different tracks, rating yourself accordingly. Once you have completed scoring yourself click the save button and your record will be saved.</p>       
 
+                        <h4>Individual Record</h4>
+                        <p>Begin by entering your organisation ID and click go. </p>  
+                        <p>If you've previously tracked your progress, the application will load your saved progress. If it is the first time you are tracking your progress, it will load a blank state. Work your way through the different tracks, rating yourself accordingly. Once you have completed scoring yourself click the save button and your record will be saved.</p>
+                       
                         <h4>Viewing Team Average</h4>
                         <p>This will determine the average score for each track of the selected team, based on the records stored in the database.</p>
 
@@ -88,7 +86,7 @@ class AboutApp extends React.Component<Props> {
                     </div>
                 </div>
             </main>
-        )
+                        )
     }
 }
 
