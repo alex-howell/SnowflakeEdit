@@ -33,6 +33,7 @@ app
         server.post('/save',(req,res)=>{
             MongoClient.connect(url,{useNewUrlParser:true},function(err,db){
                 if(err) throw err;
+                
                 //Break URL down into array
                 var record = req.body.theUrl;
                 record=record.replace(/\%20/g," ");

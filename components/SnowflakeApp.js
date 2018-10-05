@@ -180,10 +180,11 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
           }
         `}</style>
         <NavBar />
+        
         <div style={{display: 'flex'}}>
           
           <div style={{flex: 1}}>
-       
+          <title>View All</title>
             <form method="POST" action="/save">
               <input
                   type="hidden"
