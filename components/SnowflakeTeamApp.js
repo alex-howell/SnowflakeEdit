@@ -107,13 +107,9 @@ class SnowflakeTeamApp extends React.Component<Props, SnowflakeAppState> {
 
   componentDidMount() {
     const state = hashToState(window.location.hash)
-    console.log("-------------------------------------------")
-    if (state) {
-      this.setState(state)
+    
+    this.setState(state)
       
-    } else {
-      this.setState(emptyState())
-    }
     isLoading=false;
   }
 
@@ -152,10 +148,7 @@ class SnowflakeTeamApp extends React.Component<Props, SnowflakeAppState> {
             width: 380px;
             margin-bottom: 2px;
           }
-          .name-input:hover, .name-input:focus {
-            border-bottom: 2px solid #ccc;
-            outline: 0;
-          }
+         
           .other-input:hover, .other-input:focus {
             border-bottom: 2px solid #ccc;
             outline: 0;
@@ -186,7 +179,7 @@ class SnowflakeTeamApp extends React.Component<Props, SnowflakeAppState> {
             <NightingaleChart
                 milestoneByTrack={this.state.milestoneByTrack}
                 focusedTrackId={this.state.focusedTrackId}
-                handleTrackMilestoneChangeFn={(track, milestone) => this.handleTrackMilestoneChange(track, milestone)} />
+                 />
           </div>
         </div>
         <TrackSelector
@@ -196,12 +189,11 @@ class SnowflakeTeamApp extends React.Component<Props, SnowflakeAppState> {
         <KeyboardListener
             selectNextTrackFn={this.shiftFocusedTrack.bind(this, 1)}
             selectPrevTrackFn={this.shiftFocusedTrack.bind(this, -1)}
-            increaseFocusedMilestoneFn={this.shiftFocusedTrackMilestoneByDelta.bind(this, 1)}
-            decreaseFocusedMilestoneFn={this.shiftFocusedTrackMilestoneByDelta.bind(this, -1)} />
+            />
         <Track
             milestoneByTrack={this.state.milestoneByTrack}
             trackId={this.state.focusedTrackId}
-            handleTrackMilestoneChangeFn={(track, milestone) => this.handleTrackMilestoneChange(track, milestone)} />
+             />
 
       </main>
     )

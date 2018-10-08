@@ -259,6 +259,7 @@ app
                     var recordNo = result.length;
                     output = new Array(27).fill(0);
 
+                    //Sum all of the results
                     var i;
                     for (i = 0; i < result.length; i++) {
                         output[0] += Number(result[i].BOOKING);
@@ -289,18 +290,24 @@ app
                         output[25] += Number(result[i].ENVIRONMENT);
                         output[26] += Number(result[i].GENERAL_KNW);
                     }
+
+                    //Determine the average for each track
                     var i;
                     for (i = 0; i < output.length; i++) {
                         output[i] = Math.round(output[i] / recordNo);
                     }
 
+                    //Add the team name to the array
                     output[output.length] = teamID;
                     var resultURL = "";
+
+                    //Generate the URL
                     var i;
                     for (i = 0; i < output.length; i++) {
                         resultURL += output[i] + ",";
                     }
 
+                    //Remove trailing comma
                     resultURL = resultURL.slice(0, -1);
                     resultURL = "?#" + resultURL;
 
@@ -309,11 +316,10 @@ app
             });
 
         });
-
-
+        
         server.listen(port, err => {
             if (err) throw err;
-            console.log('>ready on :' + port)
+            console.log('--- Ready on port ' + port + ' ---')
         });
     })
     .catch(ex => {
