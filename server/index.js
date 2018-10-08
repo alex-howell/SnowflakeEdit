@@ -156,13 +156,12 @@ app
             var teamName = req.query.team;
 
             //teamName is null if the user hasn't previously viewed the website
-            if (teamName == 'all' || teamName == "null") {  
+            if (teamName == 'all' || teamName == "null") {
                 var query = {};
             } else {
                 var query = { TEAM: teamName };
             }
 
-            
             MongoClient.connect(url, { useNewUrlParser: true }, function (err, db) {
                 if (err) throw err;
                 dbo = db.db("snowflakedb");
@@ -316,7 +315,7 @@ app
             });
 
         });
-        
+
         server.listen(port, err => {
             if (err) throw err;
             console.log('--- Ready on port ' + port + ' ---')

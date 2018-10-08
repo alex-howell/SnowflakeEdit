@@ -178,6 +178,24 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
             color: #888;
             text-decoration: none;
           }
+          .btn{
+          background-color:#9dc0f9;
+         display:inline-block;
+         padding:0.35em 1.2em;
+         border:0.15em solid #FFFFFF;
+         margin:0 0.3em 0.3em 0;
+         border-radius:0.12em;
+         box-sizing: border-box;
+         text-decoration:none;
+         font-family:'Roboto',sans-serif;
+         font-weight:300;
+         color:#FFFFFF;
+         text-align:center;
+         transition: all 0.2s;
+        }
+        .btn:hover{
+         background-color:#6099f7;
+        }
         `}</style>
         <NavBar />
         
@@ -228,7 +246,8 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
                   currentTitle={this.state.title}
                   setTitleFn={(title) => this.setTitle(title)} 
                   />
-              <input type="submit" value="Save"/>
+              <br />
+              <input type="submit" value="Save" className="btn"/>
             </form>
             <PointSummaries milestoneByTrack={this.state.milestoneByTrack} />
             <LevelThermometer milestoneByTrack={this.state.milestoneByTrack} />
