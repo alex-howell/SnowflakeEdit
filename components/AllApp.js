@@ -141,10 +141,6 @@ class AllApp extends React.Component {
             )}
           </select>
 
-
-          <br />
-          <br />
-
           <Workbook filename="records.xlsx" element={<button className="btn">Export table to Excel</button>}>
             <Workbook.Sheet data={hits} name="Sheet A">
               <Workbook.Column label="Name" value="NAME" />

@@ -130,7 +130,7 @@ class HomeApp extends React.Component<Props> {
                             <input type="submit" value="Go" className="btn" />
                         </form>
                     </div>
-                    
+                    <br />
                     <div className="inputDiv">
                         <form method="POST" action="/team" className="form">
                             <label>View Team Average</label><br />
@@ -142,11 +142,11 @@ class HomeApp extends React.Component<Props> {
                             <input type="submit" value="Search" className="btn" />
                         </form>
                     </div>
-
+                    <br />
                     <div className="inputDiv">
                         <form method="get" action="/findall" className="form">
                             <label>View All Records</label><br />
-                            <input type="submit" value="VIEW ALL" className="btn" />
+                            <input type="submit" value="View All" className="btn" />
                         </form>
                     </div>
 

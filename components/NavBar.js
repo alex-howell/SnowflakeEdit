@@ -28,7 +28,7 @@ render() {
         }
 
         #navbar li a:hover {
-            border-bottom: 4px solid #6099f7;
+            background-color:#6099f7;
             color:white;
         }
         `}</style>
