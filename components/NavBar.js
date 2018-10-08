@@ -6,6 +6,9 @@ render() {
     return (
       <main>
         <style >{`   
+        body{
+            font-family: Helvetica;
+        }
         #navbar ul {
             list-style-type: none;
             margin: 0;
