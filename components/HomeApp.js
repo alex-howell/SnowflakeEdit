@@ -24,7 +24,6 @@ class HomeApp extends React.Component<Props> {
         fetch('/teams', {
             method: "POST"
         })
-
             .then(response => {
                 if (response.ok) {
                     return response.json();

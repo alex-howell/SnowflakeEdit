@@ -24,15 +24,16 @@ class AllApp extends React.Component {
   componentDidMount() {
 
     this.setState({ isLoading: true });
+
+    //Fetch the selected team + user it in the query
     var QUERY = localStorage.getItem('query');
     fetch(API + QUERY, {
       method: "POST"
     })
-
       .then(response => {
         if (response.ok) {
+          //
           localStorage.setItem('query', 'all');
-
           return response.json();
         } else {
           throw new Error('Something went wrong ...');
@@ -43,15 +44,15 @@ class AllApp extends React.Component {
   }
 
   handleChange(e) {
-    if (e.target.value !== "") {
-      localStorage.setItem('query', e.target.value);
-      location.reload();
-    }
+    //Set the query + refresh the page to fetch new results 
+    localStorage.setItem('query', e.target.value);
+    location.reload();
   }
 
   handleClick(e) {
-    console.log(e.target.value);
+    //Store the userID in hidden text field
     document.getElementById("searchID").value = e.target.value;
+    //Then submit the form with ID stored
     document.getElementById("theForm").submit();
   }
 
@@ -66,14 +67,13 @@ class AllApp extends React.Component {
       return <LoadingIcon />;
     }
 
-
-
+    //Iterate through each record + map to set. (Used a set here to ensure no duplicate teams)
     var set1 = new Set();
     hits.map(team =>
       set1.add(team.TEAM)
     )
-
     var array = Array.from(set1);
+
     return (
       <main>
         <style jsx global>{`
@@ -132,7 +132,7 @@ class AllApp extends React.Component {
           <br />
           <label>Filter By Team - </label>
 
-
+          {/*Create the dropdown using the teams found in the set*/}
           <select name="team" width="15px;" onChange={(e) => { this.handleChange(e) }}>
             <option value="">Select team...</option>
             <option value="all">All</option>
@@ -140,7 +140,7 @@ class AllApp extends React.Component {
               <option value={team}>{team}</option>
             )}
           </select>
-
+          {/*For the excel generatoin*/}
           <Workbook filename="records.xlsx" element={<button className="btn">Export table to Excel</button>}>
             <Workbook.Sheet data={hits} name="Sheet A">
               <Workbook.Column label="Name" value="NAME" />
@@ -179,7 +179,7 @@ class AllApp extends React.Component {
 
           <br />
           <br />
-          
+
           <table>
             <th>Name</th><th>Team</th><th>Location</th><th>Booking</th><th>Booking Core</th><th>Shipment</th><th>Product & Routing</th><th>Pricing</th><th>Haulage</th><th>Customer</th><th>Activity Plan</th><th>Allocation</th><th>TPDoc Management</th><th>Framework</th><th>FUI</th><th>Cargo</th><th>Special Cargo</th><th>Interfaces</th><th>Document Process Engine</th><th>DocBroker</th><th>Archiving</th><th>ToP</th><th>GHDER</th><th>Decommissioned</th><th>Reference Data Management</th><th>UI Framework</th><th>SAT</th><th>Development Support Features</th><th>Environment</th><th>General Knowhow</th>
             {hits.map(hit =>
@@ -188,13 +188,14 @@ class AllApp extends React.Component {
               </tr>
             )}
           </table>
+
           <form method="POST" action="/find" id="theForm" target="_blank">
-            <input type="hidden" id="searchID" name="searchID"/>
+            <input type="hidden" id="searchID" name="searchID" />
           </form>
         </div>
 
       </main>
-        );
+    );
   }
 }
 
