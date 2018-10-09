@@ -215,6 +215,8 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
                   value={this.state.name}
                   onChange={e => this.setState({name: e.target.value})}
                   placeholder="Name"
+                  pattern="[A-Za-z]+"
+                  title="Can only contain characters."
                   required
                   />
               <input 
@@ -231,6 +233,8 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
                   value={this.state.location}
                   onChange={e => this.setState({location:e.target.value})}
                   placeholder="Location"
+                  pattern="[A-Za-z]+"
+                  title="Can only contain characters."
                   required
                   />
               <input 
@@ -239,6 +243,8 @@ class SnowflakeApp extends React.Component<Props, SnowflakeAppState> {
                   value={this.state.team}
                   onChange={e => this.setState({team:e.target.value})}
                   placeholder="Team"
+                  pattern="[A-Za-z]+"
+                  title="Can only contain characters."
                   required
                   />
               <TitleSelector
